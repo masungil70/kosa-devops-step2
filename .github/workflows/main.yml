@@ -29,18 +29,21 @@ jobs:
     #  with:
     #    java-version: '17'
     #    distribution: 'temurin'
+    
+    - name: 경로 변경  
+      run: cd kosa-devops-step2
       
     - name: gradlew 파일 실행 권한 설정 
-      run: chmod +x kosa-devops-step2/gradlew
+      run: chmod +x gradlew
         
     - name: Test with gradle
-      run: ./kosa-devops-step2/gradlew --info test
+      run: ./gradlew --info test
      
     - name: Spring boot  실행 파일 생성 '
-      run: ./kosa-devops-step2/gradlew bootJar 
+      run: ./gradlew bootJar 
         
     - name: docker image 생성 
-      run: docker build -t ${{env.DOCKER_USERNAME}}/devops_step2:latest ./kosa-devops-step2
+      run: docker build -t ${{env.DOCKER_USERNAME}}/devops_step2:latest .
 
     - name: docker login
       uses: docker/login-action@v1
@@ -56,8 +59,8 @@ jobs:
       with:
         name: my-artifact
         path: |
-          kosa-devops-step2/docker-compose_nginx.yml
-          kosa-devops-step2/nginx/nginx.conf
+          docker-compose_nginx.yml
+          nginx/nginx.conf
 
   deploy:
     needs: build
