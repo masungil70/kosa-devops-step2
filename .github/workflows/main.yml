@@ -102,7 +102,7 @@ jobs:
       run: |
         cd kosa-devops-step2
         scp ./docker-compose_nginx.yml aws-master:~
-        scp -r ./nginx/nginx.conf      aws-master:~
+        scp ./nginx/nginx.conf      aws-master:~/nginx/nginx.conf
         ssh aws-master ./run.sh > /dev/null
 
       
