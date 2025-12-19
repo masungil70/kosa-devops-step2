@@ -18,8 +18,8 @@ jobs:
     #- name: 소스 복사 
     #  run: git clone https://github.com/masungil70/kosa-devops-step2
     #- uses: actions/checkout@v3
-    #- name: 폴더 정리  
-    #  run: rm -rf kosa-devops-step2
+    - name: 폴더 정리  
+      run: rm -rf kosa-devops-step2
   
     - name: 소스 복사 
       run: git clone https://github.com/masungil70/kosa-devops-step2
