@@ -10,7 +10,8 @@ env:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
+#    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     # 소스 복사 
@@ -18,11 +19,11 @@ jobs:
     #  run: git clone https://github.com/masungil70/kosa-devops-step2
     - uses: actions/checkout@v3
 
-    - name: Setup JDK17 
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
+    #- name: Setup JDK17 
+    #  uses: actions/setup-java@v3
+    #  with:
+    #    java-version: '17'
+    #    distribution: 'temurin'
       
     - name: gradlew 파일 실행 권한 설정 
       run: chmod +x gradlew
