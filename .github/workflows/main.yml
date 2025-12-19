@@ -55,6 +55,7 @@ jobs:
       with:
         sparse-checkout: |
           docker-compose_nginx.yml
+          nginx/nginx.conf
         sparse-checkout-cone-mode: false
         clean: true
 
@@ -66,9 +67,6 @@ jobs:
 
     - name: docker image pull
       run: docker pull ${{env.DOCKER_USERNAME}}/devops_step2:v1.0
-
-    - name: docker compose 실행
-      run: cd /home/kosa/kosa-devops-step2
 
     - name: docker compose 실행
       run: docker compose -d -f docker-compose_nginx.yml up
