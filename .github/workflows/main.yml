@@ -69,7 +69,7 @@ jobs:
       run: docker pull ${{env.DOCKER_USERNAME}}/devops_step2:v1.0
 
     - name: docker compose 실행
-      run: docker compose -d -f docker-compose_nginx.yml up
+      run: docker compose -f docker-compose_nginx.yml up -d 
 
       
     
